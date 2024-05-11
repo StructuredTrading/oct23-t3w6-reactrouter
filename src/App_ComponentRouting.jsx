@@ -5,6 +5,7 @@ import HomePage from './pages/Home'
 import AboutPage from './pages/About'
 import ContactPage from './pages/Contact'
 import PageNotFound from './pages/PageNotFound'
+import BaseLayout from './pages/_baseLayout'
 
 function App() {
 
@@ -12,15 +13,14 @@ function App() {
     <>
     <BrowserRouter>
       <Routes>
-        {/* <Route path="/" elements={<HomePage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/contact" element={<ContactPage />} /> */}
 
-        <Route path="/" element={<HomePage />} />
-        <Route path="/about/services" element={<AboutPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="*" element={<PageNotFound />}/>
-
+        <Route path="/" element={<BaseLayout />} >
+          <Route index element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="*" element={<PageNotFound />}/>
+        </Route>
+        
       </Routes>
     </BrowserRouter>
     </>
